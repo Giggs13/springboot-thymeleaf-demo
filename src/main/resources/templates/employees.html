@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <link rel="stylesheet" th:href="@{/css/bootstrap.min.css}" type="text/css">
+
+    <title>Employee Directory</title>
+</head>
+<body>
+<div class="container-fluid px-5">
+    <div class="row py-4">
+        <div class="col">
+            <div class="alert alert-success text-center" role="alert">
+                <h4>Employee Directory</h4>
+            </div>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col">
+            <table class="table table-hover text-left table-bordered">
+                <thead>
+                <tr class="table-primary">
+                    <th>Id</th>
+                    <th>First Name</th>
+                    <th>Last Name</th>
+                    <th>Email</th>
+                </tr>
+                </thead>
+                <tbody>
+                <tr class="table-secondary" th:each="employee: ${employees}">
+                    <td class="align-middle" th:text="${employee.id}"></td>
+                    <td class="align-middle" th:text="${employee.firstName}"></td>
+                    <td class="align-middle" th:text="${employee.lastName}"></td>
+                    <td class="align-middle" th:text="${employee.email}"></td>
+                </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+</div>
+</body>
+</html>
