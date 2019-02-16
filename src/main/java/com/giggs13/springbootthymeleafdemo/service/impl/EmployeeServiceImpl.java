@@ -21,6 +21,22 @@ public class EmployeeServiceImpl
 
     @Override
     public List<Employee> getAll() {
-        return repository.findAll();
+        return repository.findAllByOrderByLastName();
+    }
+
+    @Override
+    public Employee getById(int id) {
+        return repository.findById(id)
+                .orElse(null);
+    }
+
+    @Override
+    public void save(Employee employee) {
+        repository.save(employee);
+    }
+
+    @Override
+    public void delete(int id) {
+        repository.deleteById(id);
     }
 }

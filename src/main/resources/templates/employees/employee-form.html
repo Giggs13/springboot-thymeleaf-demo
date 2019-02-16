@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <link rel="stylesheet" th:href="@{/css/bootstrap.min.css}" type="text/css">
+
+    <title>Save Employee</title>
+</head>
+<body>
+<div class="container-fluid px-5">
+    <div class="row py-4">
+        <div class="col-sm">
+            <div class="alert alert-success text-center" role="alert">
+                <h4>Employee Directory</h4>
+            </div>
+        </div>
+    </div>
+    <div class="row pt-1">
+        <div class="col-sm text-primary">
+            <h3>Employee Details</h3>
+        </div>
+    </div>
+    <hr>
+    <form action="#"
+          th:action="@{/employees/save}"
+          th:object="${employee}"
+          method="post">
+        <input type="hidden" th:field="*{id}">
+        <div class="form-group">
+            <label for="firstName">First Name</label>
+            <input type="text"
+                   class="form-control"
+                   id="firstName"
+                   th:field="*{firstName}"
+                   placeholder="First Name"/>
+        </div>
+        <div class="form-group">
+            <label for="lastName">Last Name</label>
+            <input type="text"
+                   class="form-control"
+                   id="lastName"
+                   th:field="*{lastName}"
+                   placeholder="Last Name"/>
+        </div>
+        <div class="form-group">
+            <label for="email">Email</label>
+            <input type="email"
+                   class="form-control"
+                   id="email"
+                   th:field="*{email}"
+                   placeholder="Email"/>
+        </div>
+        <div class="row">
+            <div class="col-sm">
+                <button type="submit"
+                        class="btn btn-primary float-right mt-1">Save
+                </button>
+            </div>
+        </div>
+    </form>
+    <hr class="mt-5">
+    <div class="row mb-2">
+        <div class="col-sm">
+            <a role="button"
+               class="btn btn-light"
+               th:href="@{/employees}">Back to List
+            </a>
+        </div>
+    </div>
+</div>
+</body>
+</html>
